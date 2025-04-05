@@ -1,0 +1,90 @@
+Proceso GestionDeCuentas
+	Definir cuenta1, cuenta2, recargador, monto Como Real
+	Definir opcion, cuentaDestino Como Entero
+	
+	// Inicializar cuentas con saldo 0
+	cuenta1 = 0
+	cuenta2 = 0
+	recargador = 0
+	
+	Repetir
+		Escribir "=========================="
+		Escribir "       MENÚ DE OPCIONES   "
+		Escribir "=========================="
+		Escribir "1. Recargar saldo"
+		Escribir "2. Transferir de Cuenta 1 a Cuenta 2"
+		Escribir "3. Transferir de Cuenta 2 a Cuenta 1"
+		Escribir "4. Consultar saldo de Cuenta 1"
+		Escribir "5. Consultar saldo de Cuenta 2"
+		Escribir "6. Salir"
+		Escribir "Seleccione una opción:"
+		Leer opcion
+		
+		Si opcion = 1 Entonces
+			Escribir "Ingrese el monto a recargar:"
+			Leer monto
+			Si monto > 0 Entonces
+				Escribir "¿A qué cuenta desea recargar? (1 o 2)"
+				Leer cuentaDestino
+				Si cuentaDestino = 1 Entonces
+					cuenta1 = cuenta1 + monto
+				SiNo
+					Si cuentaDestino = 2 Entonces
+						cuenta2 = cuenta2 + monto
+					SiNo
+						Escribir "Opción inválida. Debe elegir 1 o 2."
+					FinSi
+				FinSi
+			SiNo
+				Escribir "Monto inválido. Debe ser mayor a 0."
+			FinSi
+			
+		SiNo
+			Si opcion = 2 Entonces
+				Escribir "Ingrese el monto a transferir de Cuenta 1 a Cuenta 2:"
+				Leer monto
+				Si monto > 0 Y monto <= cuenta1 Entonces
+					cuenta1 = cuenta1 - monto
+					cuenta2 = cuenta2 + monto
+					Escribir "Transferencia exitosa."
+				SiNo
+					Escribir "Saldo insuficiente o monto inválido."
+				FinSi
+				
+			SiNo
+				Si opcion = 3 Entonces
+					Escribir "Ingrese el monto a transferir de Cuenta 2 a Cuenta 1:"
+					Leer monto
+					Si monto > 0 Y monto <= cuenta2 Entonces
+						cuenta2 = cuenta2 - monto
+						cuenta1 = cuenta1 + monto
+						Escribir "Transferencia exitosa."
+					SiNo
+						Escribir "Saldo insuficiente o monto inválido."
+					FinSi
+					
+				SiNo
+					Si opcion = 4 Entonces
+						Escribir "Saldo actual de Cuenta 1: ", cuenta1
+						
+					SiNo
+						Si opcion = 5 Entonces
+							Escribir "Saldo actual de Cuenta 2: ", cuenta2
+							
+						SiNo
+							Si opcion = 6 Entonces
+								Escribir "Saliendo del programa..."
+							SiNo
+								Escribir "Opción no válida. Intente de nuevo."
+							FinSi
+						FinSi
+					FinSi
+				FinSi
+			FinSi
+		FinSi
+		
+	Hasta Que opcion = 6
+	
+FinProceso
+
+
