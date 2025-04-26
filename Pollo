@@ -1,0 +1,27 @@
+Proceso SistemaDeReservas
+    Definir fechaEntrada, fechaSalida Como Cadena
+    Definir nombreCliente, documento, telefono, correo Como Cadena
+    Definir habitacionSeleccionada Como Entero
+    Definir i Como Entero
+    
+    // Paso 1: Solicitar fechas de reserva
+    Escribir "Ingrese fecha de entrada (dd/mm/aaaa): "
+    Leer fechaEntrada
+    
+    Escribir "Ingrese fecha de salida (dd/mm/aaaa): "
+    Leer fechaSalida
+    
+    // Paso 2: Consultar habitaciones disponibles
+    Escribir "Habitaciones disponibles:"
+    Para i <- 1 Hasta TotalHabitaciones
+        Si HabitacionDisponible(i, fechaEntrada, fechaSalida) Entonces
+            Escribir "Habitación ", NumeroHabitacion(i), " disponible."
+        FinSi
+    FinPara
+    
+    // Paso 3: Registro de cliente
+    Escribir "Ingrese nombre del cliente: "
+    Leer nombreCliente
+    
+    Escribir "Ingrese documento de identidad: "
+    Leer documento
