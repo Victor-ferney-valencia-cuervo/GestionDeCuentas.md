@@ -1,0 +1,50 @@
+Proceso ReservaHotel
+
+    Definir nombreCliente Como Cadena
+    Definir fechaEntrada Como Cadena
+    Definir fechaSalida Como Cadena
+    Definir opcion Como Entero
+
+    nombreCliente <- ""
+    fechaEntrada <- ""
+    fechaSalida <- ""
+
+    Repetir
+        Escribir "----- MENÚ HOTEL -----"
+        Escribir "1. Crear Reserva"
+        Escribir "2. Ver Fecha de Entrada"
+        Escribir "3. Ver Fecha de Salida"
+        Escribir "4. Salir"
+        Escribir "Seleccione una opción:"
+        Leer opcion
+
+        Segun opcion Hacer
+            1:
+                Escribir "Ingrese el nombre del cliente:"
+                Leer nombreCliente
+                Escribir "Ingrese la fecha de entrada (dd/mm/aaaa):"
+                Leer fechaEntrada
+                Escribir "Ingrese la fecha de salida (dd/mm/aaaa):"
+                Leer fechaSalida
+                Escribir "Reserva creada exitosamente."
+            2:
+                Si fechaEntrada <> "" Entonces
+                    Escribir "Fecha de entrada: ", fechaEntrada
+                Sino
+                    Escribir "No hay reserva creada."
+                FinSi
+            3:
+                Si fechaSalida <> "" Entonces
+                    Escribir "Fecha de salida: ", fechaSalida
+                Sino
+                    Escribir "No hay reserva creada."
+                FinSi
+            4:
+                Escribir "Saliendo del sistema..."
+            De Otro Modo:
+                Escribir "Opción inválida. Intente de nuevo."
+        FinSegun
+
+    Hasta Que opcion = 4
+
+FinProceso
